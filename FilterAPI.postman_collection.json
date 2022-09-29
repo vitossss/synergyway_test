@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "cfb2a208-c3a6-4389-8c32-a069defba734",
+		"name": "Users test API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20243444"
+	},
+	"item": [
+		{
+			"name": "User filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/users/?user_id=2&group_id=2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						""
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "user1",
+							"disabled": true
+						},
+						{
+							"key": "user_id",
+							"value": "2"
+						},
+						{
+							"key": "group_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Group filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/groups/?desc=Roc&group_id=2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"groups",
+						""
+					],
+					"query": [
+						{
+							"key": "desc",
+							"value": "Roc"
+						},
+						{
+							"key": "group_id",
+							"value": "2"
+						},
+						{
+							"key": "name",
+							"value": "AC/DC the best",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
