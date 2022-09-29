@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  backend:
+    build: ./server
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./server:/synergyway_test/server
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  frontend:
+    build: ./front
+    stdin_open: true
+    tty: true
+    command: bash -c "yarn start"
+    volumes:
+      - ./front:/synergyway_test/front
+      - node-modules:/synergyway_test/front/node_modules
+    ports:
+      - "3000:3000"
+volumes:
+  node-modules:
+  postgres_data:
